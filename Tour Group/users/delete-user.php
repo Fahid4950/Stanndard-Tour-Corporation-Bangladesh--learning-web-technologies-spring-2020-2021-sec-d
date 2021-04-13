@@ -1,14 +1,19 @@
-
-
 <?php
-$data = $_POST;
-if (empty($data['username']) ||
-    empty($data['password']) ||
-    empty($data['email']) ||
-    empty($data['password_confirm'])) {
 
-    die('Please fill all required fields!');
+session_start();
+
+if(!isset($_SESSION['login_Success'] ))
+{
+    header('location:login.php');
 }
-if ($data['password'] !== $data['password_confirm']) {
-   die('Password and Confirm password should match!');
-}
+
+require '../db.php';
+
+$id=$_GET['id'];
+
+$delete = "DELETE FROM  users   WHERE id=$id";
+$delete_result = mysqli_query($db_connect,$delete);
+
+header('location:trash.php');
+
+ ?>
