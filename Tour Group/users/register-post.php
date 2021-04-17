@@ -10,6 +10,11 @@ require '../db.php';
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
     $gender = $_POST['gender'];
+    $day =$_POST['day'];
+    $month =$_POST['month'];
+    $year =$_POST['year'];
+    $type =$_POST['type'];
+
     //$dob = $_POST['year'] . '/' . $_POST['month'] . '/' . $_POST['day'];
 
     //$dob = $_POST['dob'];
@@ -51,8 +56,33 @@ require '../db.php';
      {
        $rp_err ="Your password should be 8 cherector!!!?";
        header('location:register.php?rp_err='.$rp_err);
+}
 
-   }
+
+
+else if(ctype_lower($_POST['password']))
+{
+  $rlop_err ="Your password should be lower case!!!?";
+  header('location:register.php?rlop_err='.$rlop_err);
+}
+
+else if(ctype_alpha($_POST['password']))
+{
+  $rep_err ="Your password should be number!!!?";
+  header('location:register.php?rep_err='.$rep_err);
+}
+
+// else if(ctype_upper($_POST['password']))
+// {
+//   $rup_err ="Your password should be uppercase!!!?";
+//   header('location:register.php?rup_err='.$rup_err);
+// }
+
+else if(ctype_lower($_POST['password']))
+{
+  $rlp_err ="Your password should be lowercase!!!?";
+  header('location:register.php?rlp_err='.$rlp_err);
+}
    else if (empty($repassword))
     {
       $re_err ="Please write password again!!!?";
@@ -70,7 +100,7 @@ require '../db.php';
 
 
     else {
-      $insert = "INSERT INTO users(name,username,email,password,gender,created_at) VALUES('$name','$username' ,'$email','$password','$gender','$created_at')";
+      $insert = "INSERT INTO users(name,username,email,password,gender,day,month,year,type,created_at) VALUES('$name','$username' ,'$email','$password','$gender','$day','$month','$year','$type','$created_at')";
 
       // $insert = "INSERT INTO users(name,username,email,password,gender,dob) VALUES('$name','$username' ,'$email','$password','$gender',$dob)";
 

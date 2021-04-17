@@ -26,7 +26,9 @@ require 'dashbord_part/header.php';
  </div>
 
 
-<h1>Hello</h1>
+<img src="123.jpg" height="300" width="300" alt="">
+<img src="1234.jpg" height="300" width="300" alt="">
+<img src="12345.jpg" height="300" width="300" alt="">
  <?php
 require 'dashbord_part/footer.php';
   ?>
